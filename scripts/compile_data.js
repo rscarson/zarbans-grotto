@@ -1,19 +1,21 @@
 'use strict'
-import { writeFileSync } from 'fs';
+import { writeFileSync, readFileSync } from 'fs';
 
-console.log(process.cwd());
-import { JsonUtilities } from "../src/game_engine/json.utils.js";
+function importJSON(path) {
+    const data = readFileSync(path);
+    return JSON.parse(data);
+}
 
 console.log('Compiling game data...');
-const config = JsonUtilities.import('zarban.config.json')
+const config = importJSON('zarban.config.json')
 
-const player_data = JsonUtilities.import(config.root);
-player_data.choices = JsonUtilities.import(player_data.choices);
-player_data.inventory = JsonUtilities.import(player_data.inventory);
-player_data.status = JsonUtilities.import(player_data.status);
+const player_data = importJSON(config.root);
+player_data.choices = importJSON(player_data.choices);
+player_data.inventory = importJSON(player_data.inventory);
+player_data.status = importJSON(player_data.status);
 
 for (const i of Object.keys(player_data.chapters)) {
-    player_data.chapters[i] = JsonUtilities.import(player_data.chapters[i]);
+    player_data.chapters[i] = importJSON(player_data.chapters[i]);
     player_data.chapters[i].chapter = i;
 }
 

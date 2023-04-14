@@ -1,5 +1,4 @@
 'use strict';
-import { readFileSync } from 'fs';
 
 export class JsonUtilities {
     /**
@@ -11,15 +10,5 @@ export class JsonUtilities {
         Object.assign(target, JSON.parse(JSON.stringify(
             source
         )));
-    }
-
-    /**
-     * Import a JSON object from a file
-     * @param {String} path 
-     * @returns Object
-     */
-    static import(path) {
-        const data = readFileSync(path);
-        return JSON.parse(data);
     }
 }
