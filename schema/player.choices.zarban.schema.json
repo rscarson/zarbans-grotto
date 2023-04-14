@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/player.choices.zarban.schema.json",
+    "title": "ZARBAN_CHOICES",
+    "description": "A set of choices the player can make",
+    "additionalProperties": false,
+    "required": ["records"],
+    "type": "object",
+
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "records": {
+            "type": "object",
+            "description": "The set of available choices",
+            "additionalProperties": {
+                "type": "object",
+                "description": "A single available choice",
+                "additionalProperties": false,
+                "required": ["description"],
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the choice"
+                    }
+                }
+            }
+        }
+    }
+}

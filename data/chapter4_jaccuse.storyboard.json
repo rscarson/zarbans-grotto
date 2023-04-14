@@ -1,0 +1,507 @@
+{
+    "$schema": "../schema/chapter.zarban.schema.json",
+    "name": "Chapter 4: J'Accuse!",
+    "records": {
+        "jaccuse_arrival": {
+            "text": [
+                "You arrive back in the village at midnight. The stench of evil still hangs in the air - it is time to confront Zarban.",
+                "But which villager has been replaced by the vile sorcerer?"
+            ],
+            "effects": [
+                { "type": "status", "target": "stamina", "operation": "add", "value": -1 }
+            ],
+            "options": [
+                {
+                    "prompt": "Go to the tavern",
+                    "conditions": [],
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation":"eq", "value": 0 }
+                            ],
+                            "target": "jaccuse_end_stamina"
+                        },
+                        "jaccuse_tavern" 
+                    ]
+                },
+                {
+                    "prompt": "Go to the farm",
+                    "conditions": [],
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation":"eq", "value": 0 }
+                            ],
+                            "target": "jaccuse_end_stamina"
+                        },
+                        "jaccuse_farm" 
+                    ]
+                },
+                {
+                    "prompt": "Go to Dave's house",
+                    "conditions": [],
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation":"eq", "value": 0 }
+                            ],
+                            "target": "jaccuse_end_stamina"
+                        },
+                        "jaccuse_dave" 
+                    ]
+                },
+                {
+                    "prompt": "Go to the schoolhouse",
+                    "conditions": [],
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation":"eq", "value": 0 }
+                            ],
+                            "target": "jaccuse_end_stamina"
+                        },
+                        "jaccuse_school" 
+                    ]
+                }
+            ]
+        },
+
+        "jaccuse_end_stamina": {
+            "text": [
+                "Exhausted and thirsty, you collapse to the ground. The villagers find you, and bring you to the inn to recover.",
+                "Unfortunately, by then Zarban is long gone, and the trail cold. He will later go on to form a knitting circle that only makes ugly sweaters for puppies.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_tavern": {
+            "text": [
+                "You enter the tavern. The bartender stands at his usual spot, and Dave drinks alone in the corner."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Confront the bartender",
+                    "conditions": [],
+                    "results": [ "jaccuse_bartender" ]
+                },
+                {
+                    "prompt": "Confront Dave",
+                    "conditions": [],
+                    "results": [ "jaccuse_dave" ]
+                },
+                {
+                    "prompt": "Go somewhere else",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "jaccuse_bartender": {
+            "text": [
+                "You approach the bartender, who smiles warmly on your approach. The smile fades as you draw your blade.",
+                "As your sword plunges into the man's chest, and you see the light leave his eyes, you know in your heart you've chosen wrong.",
+                "The innocent man falling to the ground before you is the last thing you ever see as a drunken, angry Dave breaks your neck from behind.",
+                "Zarban would later escape, and go on to form a boy band that only sings Nickelback covers.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_dave": {
+            "text": [
+                "Dave meets your gaze as you approach him, the old soldier recognizing the look in your eyes.",
+                "A single tear falls down his cheek as he mutters to himself \"I'm coming home, Amy.\"",
+                "As your blade pierces his heart and Dave Audemars dies before you, you know in your heart you've chosen wrong.",
+                "A bottle breaks over your head from behind, and you fall to the ground. You'll later awaken just in time for your hanging",
+                "Zarban would later escape, and go on to become the world's most successful spam email marketer.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_farm_scar": {
+            "text": [
+                "You arrive at the farm, and find Arnoulf and his daughter working the field by moonlight.",
+                "The white frills of Amelie's long dress reflect the dim light of the moon"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Confront the old farmer",
+                    "conditions": [],
+                    "results": [ "jaccuse_arnoulf" ]
+                },
+                {
+                    "prompt": "Confront the farmer's daughter",
+                    "conditions": [],
+                    "results": [
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "rusty_sword", "value": true }
+                            ],
+                            "target": "jaccuse_farm_amelie_nosword"
+                        },
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "hunter_sword", "value": true }
+                            ],
+                            "target": "jaccuse_farm_amelie_noarmor"
+                        },
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "hunter_armor", "value": true }
+                            ],
+                            "target": "jaccuse_farm_amelie_good"
+                        }
+                    ]
+                },
+                {
+                    "prompt": "Go somewhere else",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "jaccuse_farm": {
+            "text": [
+                "You arrive at the farm, and find Arnoulf and his daughter working the field by moonlight."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Confront the old farmer",
+                    "conditions": [],
+                    "results": [ "jaccuse_arnoulf" ]
+                },
+                {
+                    "prompt": "Confront the farmer's daughter",
+                    "conditions": [],
+                    "results": [
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "rusty_sword", "value": true }
+                            ],
+                            "target": "jaccuse_farm_amelie_nosword"
+                        },
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "hunter_sword", "value": true }
+                            ],
+                            "target": "jaccuse_farm_amelie_noarmor"
+                        },
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "hunter_armor", "value": true }
+                            ],
+                            "target": "jaccuse_farm_amelie_good"
+                        }
+                    ]
+                },
+                {
+                    "prompt": "Go somewhere else",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "jaccuse_farm_arnoulf": {
+            "text": [
+                "You approach the farmer as he toils under the moonlight, and draw your blade.",
+                "The farmer scowls as he raises his pitchfork to confront you.",
+                "You manage to get one good slash in on the farmer's neck... just as his pitchfork pierces your lungs.",
+                "As you both bleed out on the ground, you know you have chosen incorrectly.",
+                "Zarban would later go on to invent a new type of toothpaste that causes cavities instead of preventing them.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_farm_amelie_nosword": {
+            "text": [
+                "You approach the young woman and draw your sword.",
+                "She dons an evil grin and her features twist and distort, as the evil shapeshifter assumes to form of a massive bear!",
+                "You hack and slash away to no avail, as the common steel of your rusted blade cannot kill the vampire.",
+                "As the old farmer tries in vain to help you, your neck is ripped open by his mighty jaws, and you bleed out onto the moonlit field.",
+                "Zarban, revealed and unleashed, will draw strength from the blood of the village by massacring the entire populate of the tiny hamlet.",
+                "Renewed by his bloodbath, Zarban escapes into the world, more powerful than ever before.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_farm_amelie_noarmor": {
+            "text": [
+                "You approach the young woman and draw your sword.",
+                "She dons an evil grin and her features twist and distort, as the evil shapeshifter assumes to form of a massive bear!",
+                "You stab the vile creature through it's dark heart, but in its dying breath, the evil sorcerer utters a final curse.",
+                "As you fall to the ground, the air sucked out of your lungs, and slowly choke to death on your own blood,",
+                "You see the evil creature turn to dust before you. You may die, but at least the world is safe from this creature.",
+                "The village will remember you as a brave hero.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_farm_amelie_good": {
+            "text": [
+                "You approach the young woman and draw your sword.",
+                "She dons an evil grin and her features twist and distort, as the evil shapeshifter assumes to form of a massive bear!",
+                "You stab the vile creature through it's dark heart, but in its dying breath, the evil sorcerer utters a final curse.",
+                "Your enchanted armor glows bright with ancient runic magic as the vampire's curse is nullified.",
+                "The creature contorts and screeches as it is reduced to dust and ash - the vile one has been vanquished!",
+                "",
+                "Congratulations! You are victorious!"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_davehouse": {
+            "text": [
+                "You arrive at Dave's home at the edge of the village, a once beautiful home, but clearly neglected of late.",
+                "Vines and weeds grow rampant across the property, and the windows sit greased and dusty.",
+                "",
+                "No candles burn within, and the door is locked tight."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Go somewhere else",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "jaccuse_school": {
+            "text": [
+                "You kick down the door of the teacher's humble shack and burst in, sword drawn.",
+                "The teacher and her 6 year old son scream as you run inside."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Confront the teacher",
+                    "conditions": [],
+                    "results": [ "jaccuse_school_teacher" ]
+                },
+                {
+                    "prompt": "Confront the son",
+                    "conditions": [],
+                    "results": [ "jaccuse_school_teacher_child" ]
+                },
+                {
+                    "prompt": "Go somewhere else",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "jaccuse_school_teacher": {
+            "text": [
+                "You expertly swing your blade, and take the young woman's head clean off!",
+                "She dies instantly, since she was a schoolteacher - not a vampire.",
+                "You run off as the young boy cries and vows to avenge his mother.",
+                "You spend the rest of your days in hiding, as Zarban goes on to invent a new type of coffee that tastes like burnt popcorn and expired milk.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_school_teacher_child": {
+            "text": [
+                "You expertly swing your blade at the young child, but the mother blocks your blade with her body.",
+                "The young woman bleeds out in seconds, and the small cut on the boy's arm reveals the pure red blood of a human child.",
+                "You run off as the young boy cries and vows to avenge his mother.",
+                "You spend the rest of your days in hiding, as Zarban goes on to open a bakery that only sells cakes made with vegetables instead of sugar.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_mill": {
+            "text": [
+                "You burst into the stone building and charge to the far side of the room, where the family sits around a fireplace.",
+                "They look up in confused horror at the unexpected home invasion."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Confront the baker",
+                    "conditions": [],
+                    "results": [ "jaccuse_mill_baker" ]
+                },
+                {
+                    "prompt": "Confront the seamstress",
+                    "conditions": [],
+                    "results": [ "jaccuse_mill_seamstress" ]
+                },
+                {
+                    "prompt": "Confront the 8 year old boy",
+                    "conditions": [],
+                    "results": [ "jaccuse_mill_boy" ]
+                },
+                {
+                    "prompt": "Confront the twins",
+                    "conditions": [],
+                    "results": [ "jaccuse_mill_babies" ]
+                },
+                {
+                    "prompt": "Go somewhere else",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "jaccuse_mill_baker": {
+            "text": [
+                "You draw your blade and eviscerate the baker and father.",
+                "As his guts spill all over the floor of the mill, the grieving family holds you down until the authorities arrive.",
+                "You will be sentenced to life in prison without parole, from where you will be blissfully unaware of all the puppies Zarban would later eat.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_mill_seamstress": {
+            "text": [
+                "You draw your blade and stab the young mother of 3 through the eye.",
+                "As she falls to the ground and you realize the gravity of your mistake, a cast iron pan to the forehead puts you out of everyone's misery.",
+                "Zarban would later go on to traffic in baby spines for fun and profit.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_mill_boy": {
+            "text": [
+                "You draw your sword and slash at the young boy's throat.",
+                "The boy uses his arms to shield himself, and survives - barely - your blow.",
+                "The pure red blood of a human tells you that a mistake has been made as his mother pierces your brain with a fork through the eye.",
+                "Zarban would later go on to rethink his life and become a nun. Just kidding he eats children now.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "jaccuse_mill_babies": {
+            "text": [
+                "You draw your sword and approach the sleeping newborn babies.",
+                "You stop yourself from murdering two babies at the last second and decide to go to the tavern to rethink your life.",
+                "The closecall has scarred you, and you no longer wish to hunt vampires.",
+                "Zarban would later to on to invest heavily into dogecoin.",
+                "",
+                "The End! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        }
+    }
+}

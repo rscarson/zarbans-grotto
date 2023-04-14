@@ -1,0 +1,22 @@
+{
+  "name": "zarbans_grotto",
+  "extensionName": "Zarban's Grotto",
+  "version": "1.0.0",
+  "author": "rscarson",
+  "description": "A Lavendeux extension generated with lavendeux-extension",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "play": "npm run compile_data && node scripts/play.js",
+    "compile_data": "node scripts/compile_data.js",
+    "build": "npm run compile_data && vite build",
+    "test": "npm run compile_data && vitest"
+  },
+  "devDependencies": {
+    "vite": "^4.2.1",
+    "vitest": "^0.29.7"
+  },
+  "dependencies": {
+    "jsonschema": "^1.4.1"
+  }
+}

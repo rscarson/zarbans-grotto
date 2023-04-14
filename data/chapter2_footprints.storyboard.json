@@ -1,0 +1,1061 @@
+{
+    "$schema": "../schema/chapter.zarban.schema.json",
+    "name": "Chapter 2: Footprints",
+    "records": {
+        "tavern_enter": {
+            "text": [
+                "You enter the tavern.",
+                "Looking around you see several people of interest milling about the small village bar."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Take a seat at the bar",
+                    "conditions": [],
+                    "results": [ "tavern" ]
+                },
+                {
+                    "prompt": "Leave the tavern",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+        "tavern_ending_alcoholic": {
+            "text": [
+                "You take your familiar seat back at the bar, and order another round.",
+                "Having clearly decided to give up vampire hunting for a promising new career in alcoholism, you decide to let Zarban live.",
+                "Zarban would later go on to burn down 27 orphanages in your name.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+        "tavern": {
+            "text": [
+                "You take a seat on a ramshackle stool at the tavern bar."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Speak to the bartender",
+                    "conditions": [],
+                    "results": [ "tavern_bartender" ]
+                },
+                {
+                    "prompt": "Approach the suspicious hooded figure lurking in the corner",
+                    "conditions": [
+                        {
+                            "type": "choices",
+                            "target": "made_dave_go_home",
+                            "value": false
+                        }
+                    ],
+                    "results": [
+                        {
+                            "target": "tavern_lurker",
+                            "conditions": [
+                                {
+                                    "type": "choices",
+                                    "target": "made_dave_sad",
+                                    "value": false
+                                }
+                            ]
+                        },
+                        {
+                            "target": "tavern_lurker_sad",
+                            "conditions": [
+                                {
+                                    "type": "choices",
+                                    "target": "made_dave_sad",
+                                    "value": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "prompt": "Approach the old farmer drinking alone at the bar",
+                    "conditions": [],
+                    "results": [ "tavern_farmer" ]
+                },
+                {
+                    "prompt": "Leave the tavern",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+        
+        "tavern_bartender": {
+            "text": [
+                "You approach the tired looking bartender, intending to vigorously question the overworked customer-service employee.",
+                "\"Back for another already? What can I get'cha, stranger?\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask if any strangers have come through town recently",
+                    "conditions": [],
+                    "results": [ "tavern_bartender_strangers" ]
+                },
+                {
+                    "prompt": "Ask if anyone in town sells weapons and armor",
+                    "conditions": [],
+                    "results": [ "tavern_bartender_blacksmith" ]
+                },
+                {
+                    "prompt": "I could use a refreshing drink",
+                    "conditions": [],
+                    "results": [ "tavern_bartender_shots" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_bartender_strangers": {
+            "text": [
+                "You ask the bartender about other strangers that have passed through town.",
+                "",
+                "\"Besides yourself, m'lord? Just one, earlier this very morn'! He'll be long gone by now though, headed out in something of a hurry.\"",
+                "\"Ye could always ask Gaylen, the priest 'round' these parts - his shack'll be a good halfday's walk from here, north of the village.\""
+            ],
+            "effects": [
+                { "type": "choices", "target": "learnt_about_priest", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Ask the bartender more questions",
+                    "conditions": [],
+                    "results": [ "tavern_bartender" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_bartender_blacksmith": {
+            "text": [
+                "You ask the bartender where you might acquire new weapons and armor.",
+                "",
+                "\"Well, you're not likely to find a big fancy smithy in our little village, m'lord\"",
+                "\"That said, Dave over yonder has been known to fix a rake in his time, if you catch my meanin'\"",
+                "The bartender laughs at his attempted joke, as he points to a hooded figure drinking alone in the corner of the bar."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask the bartender more questions",
+                    "conditions": [],
+                    "results": [ "tavern_bartender" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_bartender_shots": {
+            "text": [
+                "You ask the bartender for a glass of his strongest brew, and down it in once mighty gulp.",
+                "Your stamina has been restored"
+            ],
+            "effects": [
+                {"type": "status", "target": "stamina", "operation":"add", "value": 99},
+                {"type": "status", "target": "alcoholism", "operation":"add", "value": 1}
+            ],
+            "options": [
+                {
+                    "prompt": "Ask the bartender more questions",
+                    "conditions": [],
+                    "results": [ "tavern_bartender" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_lurker": {
+            "text": [
+                "You approach the hooded stranger, clearly an imposing figure. The hulking goliath of a man looks up at you with a scowl on his face.",
+                "\"What do ye' want, stranger. I ain't in no mood fer conversin' with the likes of you today.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "I KNOW YOU'RE THE VAMPIRE, YOU MONSTER! PREPARE TO DIE!",
+                    "conditions": [],
+                    "results": [ "tavern_lurker_sad" ]
+                },
+                {
+                    "prompt": "Ask where you might be able to acquire some new weapons and armor",
+                    "conditions": [],
+                    "results": [ "tavern_lurker_smithy" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_lurker_smithy": {
+            "text": [
+                "\"Well I haven't the skills to make such a thing, if that's what yer asking, but I was a soldier in me youth.\"",
+                "\"Meet me at my house just outside the village. Could use a hand with something, then I think I can help ye.\""
+            ],
+            "effects": [
+                {
+                    "type": "choices",
+                    "target": "made_dave_go_home",
+                    "value": true
+                }
+            ],
+            "options": [
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_lurker_sad": {
+            "text": [
+                "The large muscular man before you begins to cry uncontrollably, tears streaming down his bearded visage.",
+                "\"Just leave me alone! You're really mean... G... Go away...\"",
+                "",
+                "The mighty Zarban would never debase himself so. This is clearly not he."
+            ],
+            "effects": [
+                {
+                    "type": "choices",
+                    "target": "made_dave_sad",
+                    "value": true
+                }
+            ],
+            "options": [
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_farmer": {
+            "text": [
+                "An old man sits at the bar next to you, his skin wrinkled from years of hard labour under the sun."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask him how a farmer has time to drink in broad daylight",
+                    "conditions": [],
+                    "results": [ "tavern_farmer_sun" ]
+                },
+                {
+                    "prompt": "Make small talk",
+                    "conditions": [],
+                    "results": [ "tavern_farmer_daughter" ]
+                },
+                {
+                    "prompt": "Ask if anyone in town sells weapons and armor",
+                    "conditions": [],
+                    "results": [ "tavern_farmer_blacksmith" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_farmer_sun": {
+            "text": [
+                "\"Never much cared for the sun is all. Do most of me work by night these days. What business is it of yours, anyway?\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Continue talking to the farmer",
+                    "conditions": [],
+                    "results": [ "tavern_farmer" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_farmer_daughter": {
+            "text": [
+                "\"Not much of interest happens round these parts, stranger.\"",
+                "\"Me daughter's been aweful moody lately, but tis the norm for the young'uns these days.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Continue talking to the farmer",
+                    "conditions": [],
+                    "results": [ "tavern_farmer" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_farmer_blacksmith": {
+            "text": [
+                "\"You could try Dave, round back. He's the hooded feller with crippling emotional issues.\"",
+                "\"He's been known to fix a rake in his time, if you catch my meanin'\"",
+                "The farmer laughs heartily, clearly pleased with his joke."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Continue talking to the farmer",
+                    "conditions": [],
+                    "results": [ "tavern_farmer" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                    ],
+                    "results": [ "tavern_ending_alcoholic" ]
+                },
+                {
+                    "prompt": "Go back to your stool",
+                    "conditions": [
+                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                    ],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+
+        "village_ending_stamina": {
+            "text": [
+                "Exhausted and thirsty, you collapse to the ground. The villagers find you, and bring you to the inn to recover.",
+                "Unfortunately, by then Zarban is long gone, and the trail cold. He will later go on to become the CEO of Nestle.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "village": {
+            "text": [
+                "You exit the tavern and walk to the main road crossing the small village. A nearby sign identifies the town as Rothsten."
+            ],
+            "effects": [
+                { "type": "status", "target": "stamina", "operation": "add", "value": -1}
+            ],
+            "options": [
+                {
+                    "prompt": "Search the farm",
+                    "conditions": [],
+                    "results": [ 
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        "village_farm" 
+                    ]
+                },
+                {
+                    "prompt": "Search Dave's house",
+                    "conditions": [],
+                    "results": [ 
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        { 
+                            "conditions": [
+                                { "type": "choices", "target": "made_dave_go_home", "value": false }
+                            ],
+                            "target": "village_dave_not_home"
+                        },
+                        { 
+                            "conditions": [
+                                { "type": "choices", "target": "made_dave_sad", "value": true }
+                            ],
+                            "target": "village_dave_not_home"
+                        },
+                        "village_dave" 
+                    ]
+                },
+                {
+                    "prompt": "Search the school",
+                    "conditions": [],
+                    "results": [
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        "village_school_outside" 
+                    ]
+                },
+                {
+                    "prompt": "Search the mill",
+                    "conditions": [],
+                    "results": [ 
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        "village_mill" 
+                    ]
+                },
+                {
+                    "prompt": "Go back to the tavern",
+                    "conditions": [],
+                    "results": [ 
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        "tavern_enter" 
+                    ]
+                },
+                {
+                    "prompt": "Leave the village and head to the priest's cottage",
+                    "conditions": [
+                        { "type": "choices", "target": "learnt_about_priest", "value": true}
+                    ],
+                    "results": [ 
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        "church_bear" 
+                    ]
+                }
+            ]
+        },
+
+        "village_farm": {
+            "text": [
+                "You arrive at a well maintained farmhouse. You walk into the house, and see a young woman crushing herbs with a mortar & pestle.",
+                "Based on her attire - and the visibility of her assets - you wonder if her clothes were the victim of a shrinking spell.",
+                "She does not seem surprised to see you, not so much as looking up from her work.",
+                "\"A vampire hunter in our little corner of the world? What could possibly bring you here?\" She asks you."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Speak to the young woman",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie" ]
+                },
+                {
+                    "prompt": "Look around the humble farmhouse",
+                    "conditions": [],
+                    "results": [ "village_farm_search" ]
+                },
+                {
+                    "prompt": "Leave the farm",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_farm_amelie": {
+            "text": [
+                "\"Need a potion? Or a salve?\" The young woman asks"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask her about her family",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie_family" ]
+                },
+                {
+                    "prompt": "Ask her about herself",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie_self" ]
+                },
+                {
+                    "prompt": "Ask if she's seen anything unusual",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie_unusual" ]
+                },
+                {
+                    "prompt": "Stop speaking to the woman",
+                    "conditions": [],
+                    "results": [ "village_farm" ]
+                }
+            ]
+        },
+
+        "village_farm_amelie_family": {
+            "text": [
+                "\"Our family? It's an interesting enough tale, I suppose.\" The young woman begins",
+                "\"My father is Arnoulf, of House Brolette - yes those Brolettes.\"",
+                "\"In the days of the Aremeic Order, our family laid claim to the thrones of half the Order's colonial territories on the East continent!\"",
+                "\"My father doesn't like to talk about it, and there's not much left of the family, but it's a proud history to bear.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask her something else",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie" ]
+                }
+            ]
+        },
+
+        "village_farm_amelie_self": {
+            "text": [
+                "\"Me? I am Amelie of House Brolette; I'm the village herbalist, not that my skills net me much respect in this hole of a village.\"",
+                "\"I provide these simpletons with medicines and salves, but nobody can see past my choice of clothes. Nobody would bat an eye in the cities.\"",
+                "\"Ever try foraging for mushrooms in 3 layers of frill and fuss? You'd never catch me in some silly long dress.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask her something else",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie" ]
+                }
+            ]
+        },
+
+        "village_farm_search": {
+            "text": [
+                "You take a good look around the room.",
+                "In the corner are a pair of small beds, one of which clearly hasn't seem much use of late.",
+                "In the kitchen, various herbs and mushrooms hang from the ceiling.",
+                "Supplies for alchemical brewing are strewn about."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Speak to the young woman",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie" ]
+                },
+                {
+                    "prompt": "Leave the farm",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_dave_not_home": {
+            "text": [
+                "You arrive at Dave's home at the edge of the village, a once beautiful home, but clearly neglected of late.",
+                "Vines and weeds grow rampant across the property, and the windows sit greased and dusty.",
+                "",
+                "No candles burn within, and the door is locked tight."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Leave Dave's house",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_dave": {
+            "text": [
+                "You arrive at Dave's home at the edge of the village, a once beautiful home, but clearly neglected of late.",
+                "Vines and weeds grow rampant across the property, and the windows sit greased and dusty.",
+                "",
+                "The door sits open, so you walk inside. Dave sits alone on a dusty old wooden chair.",
+                "All around him sits dusty disused brushes, paints and canvases"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Talk to Dave",
+                    "conditions": [],
+                    "results": [ "village_dave_dave" ]
+                },
+                {
+                    "prompt": "Leave Dave's house",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_dave_dave": {
+            "text": [
+                "\"So, ye needed a weapon, ey? I do have me gear from the war that I'd be happy enough to never see again.\"",
+                "\"Not usually in the habit of armin' strangers though, so ye'd best have a good cause.\"",
+                "\"My wife, god rest 'er soul didn't approve of wanton violence.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Tell him you are hunting a vampire hiding amongst the villagers",
+                    "conditions": [],
+                    "results": [ "village_dave_dave_honest" ]
+                },
+                {
+                    "prompt": "Tell him you are avenging the death of a loved one",
+                    "conditions": [],
+                    "results": [ "village_dave_dave_lie" ]
+                },
+                {
+                    "prompt": "Tell him to give you the gear or you'll take it by force",
+                    "conditions": [],
+                    "results": [ "village_dave_dave_threaten" ]
+                },
+                {
+                    "prompt": "Leave Dave's house",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_dave_dave_honest": {
+            "text": [
+                "Dave sits in silence for an awkwardly long time.",
+                "\"There's something in the air today; as if the sky itself were thick with dread.\"",
+                "\"I believe you, stranger. My sword and armor are yours. They ain't much but I hope they help you.\"",
+                "\"All I ask is that you lay these here flowers at my family grave. The walk to the temple is too much for this old soldier.\"",
+                "\"Ye'll see it marked by the clan name Audemars.\"",
+                "",
+                "The rusted old blade would never be able to strike a killing blow against such a powerful vampire;",
+                "But it may grant some protection, at the very least."
+            ],
+            "effects": [
+                { "type": "choices", "target": "made_dave_sad", "value": true },
+                { "type": "inventory", "target": "rusty_sword", "value": true },
+                { "type": "inventory", "target": "old_armor", "value": true },
+                { "type": "inventory", "target": "dave_flowers", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Leave Dave's house",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_dave_dave_lie": {
+            "text": [
+                "Dave slowly shakes his head.",
+                "\"Sorry stranger, I cannae in good conscience lend creed to vengence. I hope you find a way to see another path.\"",
+                "\"In the meantime, I'm afraid ye'll need to leave.\""
+            ],
+            "effects": [
+                { "type": "choices", "target": "made_dave_sad", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Leave Dave's house",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_dave_dave_threaten": {
+            "text": [
+                "Without any warning, the giant of a man hits you on the side of the head with one mighty punch.",
+                "You awaken outside the house, with the door now securely locked."
+            ],
+            "effects": [
+                { "type": "choices", "target": "made_dave_sad", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Leave Dave's house",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_mill": {
+            "text": [
+                "You arive at the small village mill, and step inside",
+                "The stone brick building is small, but impressive - clearly much older than the wooden structures you've seen thus far.",
+                "Inside are a man, expertly kneading a large ball of dough, and a woman on a wooden rocking chair repairing a tunic.",
+                "",
+                "\"Ah, we heard there were strangers about!\" says the man; \"Something ye' knead? Some bread for the road perhaps?\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Take the man up on his offer of bread",
+                    "conditions": [
+                        { "type": "choices", "target": "accepted_bread", "value": false }
+                    ],
+                    "results": [ "village_mill_bread" ]
+                },
+                {
+                    "prompt": "Ask if they have garlic bread instead",
+                    "conditions": [
+                        { "type": "choices", "target": "accepted_bread", "value": false }
+                    ],
+                    "results": [ "village_mill_garlic" ]
+                },
+                {
+                    "prompt": "Ask about their family",
+                    "conditions": [],
+                    "results": [ "village_mill_family" ]
+                },
+                {
+                    "prompt": "Leave the mill",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_mill_family": {
+            "text": [
+                "\"We're the Fouchers sir - Nils and Silvia. Our family's been in these parts since the colonial days of the Order.\"",
+                "\"We've 3 little 'uns - Dylan is 8, and the twins are fresh out the oven.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_mill" ]
+                }
+            ]
+        },
+
+        "village_mill_garlic": {
+            "text": [
+                "You narrow your eyes in suspicion as the question leaves your lips",
+                "The man shakes his head; \"Nay, stranger. I've a terrible allergy to garlic, so none of that 'ere.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_mill" ]
+                }
+            ]
+        },
+
+        "village_mill_bread": {
+            "text": [
+                "The baker hands you a fresh loaf of bread, hot out of the oven,",
+                "The family then looks on in horror as you devour the entire loaf in one go like some kind of feral beast"
+            ],
+            "effects": [
+                { "type": "choices", "target": "accepted_bread", "value": true },
+                { "type": "status", "target": "stamina", "operation": "add", "value": 99 }
+            ],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_mill" ]
+                }
+            ]
+        },
+
+        "village_school_outside": {
+            "text": [
+                "You arrive outside the small schoolhouse. A humble shack sits next to it, likely a home for the teacher and her family.",
+                "A gaggle of annoying looking children mill about uselessly outside the school."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Search the shack",
+                    "conditions": [],
+                    "results": [ "village_school_shack" ]
+                },
+                {
+                    "prompt": "Search the schoolhouse",
+                    "conditions": [],
+                    "results": [ "village_school_inside" ]
+                },
+                {
+                    "prompt": "Harass the annoying children",
+                    "conditions": [],
+                    "results": [ "village_school_children" ]
+                },
+                {
+                    "prompt": "Leave the school",
+                    "conditions": [],
+                    "results": [ "village" ]
+                }
+            ]
+        },
+
+        "village_school_inside": {
+            "text": [
+                "You walk into the schoolhouse.",
+                "A woman - the teacher, presumably - is sat at the far side of the room.",
+                "On her head sits the biggest hat you have ever seen. This sunhat has a wingspan that could make a dragon jealous."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask her about herself",
+                    "conditions": [],
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "choices", "target": "insulted_teacher", "value": true }
+                            ],
+                            "target": "village_school_items"
+                        },
+                        "village_school_teacher" 
+                    ]
+                },
+                {
+                    "prompt": "Ask about the strange items in her home",
+                    "conditions": [],
+                    "results": [ "village_school_items" ]
+                },
+                {
+                    "prompt": "Ask about her gigantic hat",
+                    "conditions": [],
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "choices", "target": "insulted_teacher", "value": true }
+                            ],
+                            "target": "village_school_items"
+                        },
+                        "village_school_hat" 
+                    ]
+                },
+                {
+                    "prompt": "Look somewhere else",
+                    "conditions": [],
+                    "results": [ "village_school_outside" ]
+                }
+            ]
+        },
+        
+        "village_school_items": {
+            "text": [
+                "\"What kind of creepy imbecile looks in a young woman's windows at her private things?\"",
+                "\"Leave my classroom this instant!\""
+            ],
+            "effects": [
+                { "type": "choices", "target": "insulted_teacher", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_school_inside" ]
+                }
+            ]
+        },
+
+        "village_school_teacher": {
+            "text": [
+                "\"My family? nothing special, I'm afraid. Lost my eldest and my husband two winters back to red fever.\"",
+                "\"Milton is outside with his friends - mercifully he was too young to remember it.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_school_inside" ]
+                }
+            ]
+        },
+
+        "village_school_hat": {
+            "text": [
+                "The young woman laughs as she grips her cap",
+                "\"I've a skin condition, always have - the sun; my skin burns so easily\"",
+                "\"I use the hat to protect myself, along with a salve I make at home!\"",
+                "\"I could buy it from that Brolette girl, but I'd rather not have to interact with that one.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_school_inside" ]
+                }
+            ]},
+
+        "village_school_shack": {
+            "text": [
+                "The shack is locked but you look in through the window.",
+                "You can see strange objects strewn about - a dagger, various herbs, an ornate pendant covered in runes, and a pouch of white powder"
+            ],
+            "effects": [
+                { "type": "choices", "target": "snooped_on_teacher", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Look somewhere else",
+                    "conditions": [],
+                    "results": [ "village_school_outside" ]
+                }
+            ]
+        },
+
+        "village_school_children": {
+            "text": [
+                "You walk up to the children and kick sand at them like a complete arsehole.",
+                "One child begins to try, while another kicks you in the groin and runs away giggling."
+            ],
+            "effects": [
+                { "type": "status", "target": "stamina", "operation": "add", "value": -1 }
+            ],
+            "options": [
+                {
+                    "prompt": "Look somewhere else",
+                    "conditions": [],
+                    "results": [ "village_school_outside" ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/chapter.zarban.schema.json",
+    "title": "ZARBAN_CHAPTER",
+    "description": "A chapter for Zarban's Grotto",
+    "additionalProperties": false,
+    "required": ["records", "name"],
+    "type": "object",
+    
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the chapter"
+        },
+        "records": {
+            "type": "object",
+            "description": "The set of stories in this chapter",
+            "additionalProperties": {
+                "type": "object",
+                "description": "A single story in the chapter",
+                "additionalProperties": false,
+                "required": ["text", "effects", "options"],
+                "properties": {
+                    "text": {
+                        "type": "array",
+                        "description": "Set of lines to display for this story",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "effects": {
+                        "type": "array",
+                        "description": "Set of effects the story has on the player status",
+                        "items": {
+                            "$ref": "./player.effect.zarban.schema.json"
+                        }
+                    },
+                    "options": {
+                        "type": "array",
+                        "description": "Set of possible actions for this story",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "A possible action in the story",
+                            "required": ["prompt", "conditions", "results"],
+                            "properties": {
+                                "prompt": {
+                                    "type": "string",
+                                    "description": "Text to display for this option"
+                                },
+                                "conditions": {
+                                    "type": "array",
+                                    "description": "Conditions under which the option is available",
+                                    "items": {
+                                        "$ref": "./player.condition.zarban.schema.json"
+                                    }
+                                },
+                                "results": {
+                                    "type": "array",
+                                    "description": "Set of possible results of this action",
+                                    "items": {
+                                        "type": ["object", "string"],
+                                        "additionalProperties": false,
+                                        "description": "A possible result of an action in a story",
+                                        "required": ["target", "conditions"],
+                                        "properties": {
+                                            "target": {
+                                                "type": "string",
+                                                "description": "Next story to follow for this result"
+                                            },
+                                            "conditions": {
+                                                "type": "array",
+                                                "description": "Set of conditions for triggering a result of an action",
+                                                "items": {
+                                                    "$ref": "./player.condition.zarban.schema.json"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

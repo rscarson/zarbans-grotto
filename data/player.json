@@ -1,0 +1,15 @@
+{
+    "$schema": "../schema/player.zarban.schema.json",
+    "entrypoint": "intro_cave1",
+    
+    "chapters": [
+        "data/chapter1_cave.storyboard.json",
+        "data/chapter2_footprints.storyboard.json",
+        "data/chapter3_hunted.storyboard.json",
+        "data/chapter4_jaccuse.storyboard.json"
+    ],
+
+    "choices": "data/player.choices.json",
+    "inventory": "data/player.inventory.json",
+    "status": "data/player.status.json"
+}

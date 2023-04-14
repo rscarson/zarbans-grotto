@@ -1,0 +1,39 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/player.zarban.schema.json",
+    "title": "ZARBAN_PLAYER",
+    "description": "Describes the structure of the game of Zarban's Grotto",
+    "additionalProperties": false,
+    "required": ["entrypoint", "chapters", "choices", "inventory", "status"],
+    "type": "object",
+    
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "entrypoint": {
+            "type": "string",
+            "description": "Story ID to start new games on"
+        },
+        "chapters": {
+            "type": "array",
+            "description": "Set of JSON paths describing sections of the story",
+            "items": {
+                "type": "string",
+                "description": "JSON path describing a part of the story"
+            }
+        },
+        "choices": {
+            "type": "string",
+            "description": "JSON path describing the set of available game choices referenced in the story"
+        },
+        "inventory": {
+            "type": "string",
+            "description": "JSON path describing the set of available game items referenced in the story"
+        },
+        "status": {
+            "type": "string",
+            "description": "JSON path describing the set of available player status elements referenced in the story"
+        }
+    }
+}

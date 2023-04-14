@@ -1,0 +1,55 @@
+{
+    "$schema": "../schema/player.inventory.zarban.schema.json",
+    "records" : {
+        "hunter_sword": {
+            "description": "Vampire hunter's sword",
+            "equipped": false,
+            "effects": []
+        },
+        "hunter_armor": {
+            "description": "Vampire hunter's armor",
+            "equipped": false,
+            "effects": []
+        },
+
+        "rusty_sword": {
+            "description": "Rusty shortsword",
+            "equipped": false,
+            "effects": []
+        },
+        "old_armor": {
+            "description": "Soldier's leather cuirass",
+            "equipped": false,
+            "effects": [
+                { "type": "status", "target": "stamina", "operation": "add_max", "value": 2 },
+                { "type": "status", "target": "stamina", "operation": "add", "value": 2 }
+            ]
+        },
+
+        "magic_sword": {
+            "description": "Enchanted shortsword",
+            "equipped": false,
+            "effects": [
+            ]
+        },
+        "ancient_armor": {
+            "description": "Ancient vampire hunter's armor",
+            "equipped": false,
+            "effects": [
+                { "type": "status", "target": "stamina", "operation": "add_max", "value": 5 },
+                { "type": "status", "target": "stamina", "operation": "add", "value": 5 }
+            ]
+        },
+
+        "hunter_tomb_key": {
+            "description": "Key to the vampire hunter's tomb",
+            "equipped": false,
+            "effects": []
+        },
+        "dave_flowers": {
+            "description": "Flower's for Dave's family grave",
+            "equipped": false,
+            "effects": []
+        }
+    }
+}

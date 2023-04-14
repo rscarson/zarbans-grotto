@@ -1,0 +1,146 @@
+{
+    "$schema": "../schema/chapter.zarban.schema.json",
+    "name": "Chapter 1: The Grotto",
+    "records": {
+        "intro_cave1": {
+            "text": [
+                "Drenched from the rain, and exhausted from having hunted all through the night, you have finally cornered the beast which you have been hired to dispatch.",
+                "You approach the forboding cavern to which you have stalked your prey, the shapeshifting vampire Zarban.",
+                "The foul stench of magic fills your nostrils as you prepare to enter the grotto proper."
+            ],
+            "effects": [
+                { "type": "choices", "target": "all", "value": false },
+                { "type": "inventory", "target": "all", "value": false },
+                { "type": "status", "target": "all", "operation": "add", "value": -99 },
+
+                { "type": "status", "target": "stamina", "operation": "add", "value": 3 },
+                { "type": "inventory", "target": "hunter_sword", "value": true },
+                { "type": "inventory", "target": "hunter_armor", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Enter the grotto",
+                    "conditions": [],
+                    "results": [ "intro_cave2" ]
+                }
+            ]
+        },
+
+        "intro_cave2": {
+            "text": [
+                "In the darkness before you, deep within the cave looms a vile shadow, dripping with evil.",
+                "It can only be the mighty vampire Zarban himself."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Draw your magic sword and approach the shadow",
+                    "conditions": [],
+                    "results": [ "intro_cave3_brave" ]
+                },
+                {
+                    "prompt": "I don't care about vampires, let's go to the tavern",
+                    "conditions": [],
+                    "results": [ "intro_cave3_tavern" ]
+                }
+            ]
+        },
+
+        "intro_cave3_brave": {
+            "text": [
+                "As you prepare yourself and draw your enchanted blade, you are knocked out from behind by a large rock to the head.",
+                "You collapse to the ground, unconcious as the mighty Zarban scurries away into the night, cackling annoyingly."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "...",
+                    "conditions": [],
+                    "results": [ "intro_cave4" ]
+                }
+            ]
+        },
+
+        "intro_cave3_tavern": {
+            "text": [
+                "As you turn around to give up your promising career as a mediocre vampire-hunter for hire, you are knocked out from behind by a large rock to the head.",
+                "You collapse to the ground, unconcious as the mighty Zarban scurries away into the night, cackling annoyingly."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "...",
+                    "conditions": [],
+                    "results": [ "intro_cave4" ]
+                }
+            ]
+        },
+
+        "intro_cave4": {
+            "text": [
+                "You awaken some time later, to find your magic blade, and mint-condition vintage vampire hunting armor reduced to worthless scrap before you.",
+                "You gather what little you can salvage, and turn to leave the grotto.",
+                "",
+                "Before you lies a single set of footprints, leading away from the grotto."
+            ],
+            "effects": [
+                {
+                    "type": "inventory",
+                    "target": "all",
+                    "value": false
+                }
+            ],
+            "options": [
+                {
+                    "prompt": "Follow the footprints",
+                    "conditions": [],
+                    "results": [ "intro_cave5_brave" ]
+                },
+                {
+                    "prompt": "I don't care about footprints, let's go to the tavern",
+                    "conditions": [],
+                    "results": [ "intro_cave5_tavern" ]
+                }
+            ]
+        },
+
+        "intro_cave5_brave": {
+            "text": [
+                "You follow the footprints to a nearby village, and arrive just as dawn breaks.",
+                "The footprints lead into a small tavern, but many footprints coming and going make it impossible to tell what happened next.",
+                "",
+                "One thing you can be sure of, however; you still sense Zarban's evil aura - you are sure he is still hiding out somewhere in this very town",
+                "Likely having replaced one of the sleepy village's unsuspecting peasants.",
+                "You are exausted from searching through the night, and could use a pick-me-up"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Enter the tavern",
+                    "conditions": [],
+                    "results": [ "tavern_enter" ]
+                }
+            ]
+        },
+
+        "intro_cave5_tavern": {
+            "text": [
+                "You walk to a tavern in a nearby village, and arrive just as dawn breaks.",
+                "Coincidentally this seems to be exactly what Zarban did earlier, judging by the footprints you are now unwillingly following",
+                "The prints certainly enter the tavern, but many footprints coming and going make it impossible to tell what happened next.",
+                "",
+                "One thing you can be sure of, however; you still sense Zarban's evil aura - you are sure he is still hiding out somewhere in this very town",
+                "Likely having replaced one of the sleepy village's unsuspecting peasants.",
+                "You are exausted from searching through the night, and could use a pick-me-up"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Enter the tavern",
+                    "conditions": [],
+                    "results": [ "tavern_enter" ]
+                }
+            ]
+        }
+    }
+}

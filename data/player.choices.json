@@ -1,0 +1,36 @@
+{
+    "$schema": "../schema/player.choices.zarban.schema.json",
+    "records": {
+        "made_dave_go_home": {
+            "description": "Spoke to Dave in the tavern, making him go back to his home"
+        },
+
+        "made_dave_sad": {
+            "description": "Was rude to Dave, who will no longer help you"
+        },
+
+        "learnt_about_priest": {
+            "description": "Learnt about the church a day's walk down the road from the village"
+        },
+
+        "accepted_bread": {
+            "description": "Accepted bread from the baker"
+        },
+
+        "snooped_on_teacher": {
+            "description": "Snooped on the teacher's shack"
+        },
+
+        "insulted_teacher": {
+            "description": "Teacher found out about your snooping"
+        },
+
+        "impressed_gaylen": {
+            "description": "Impressed the priest with your kindness"
+        },
+
+        "learnt_about_hunter": {
+            "description": "Learnt about the famous hunter (and his sword)"
+        }
+    }
+}

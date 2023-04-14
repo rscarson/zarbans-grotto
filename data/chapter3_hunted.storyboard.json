@@ -1,0 +1,419 @@
+{
+    "$schema": "../schema/chapter.zarban.schema.json",
+    "name": "Chapter 3: The Hunter, Hunted",
+    "records": {
+        "church_bear": {
+            "text": [
+                "You head down the wooded path towards the temple.",
+                "As you enter the forest, the air around you grows cold and the sun itself begins to dim.",
+                "",
+                "You hear a mighty roar from behind you."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Turn around and face your foe",
+                    "conditions": [],
+                    "results": [
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "rusty_sword", "value": true }
+                            ],
+                            "target": "church_bear_armed"
+                        },
+                        "church_bear_unarmed"
+                    ]
+                },
+                {
+                    "prompt": "Run away from the creature",
+                    "conditions": [],
+                    "results": [ "church_bear_coward" ]
+                }
+            ]
+        },
+
+        "church_bear_coward": {
+            "text": [
+                ""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "",
+                    "conditions": [],
+                    "results": [ "" ]
+                }
+            ]
+        },
+
+        "church_bear_unarmed": {
+            "text": [
+                "You turn to face your foe and come face to crotch with a 12ft tall monster of a bear.",
+                "You instinctively reach for your blade, but of course, you don't have one.",
+                "You start to run away, but the mighty beast - no doubt the shapeshifter himself - rips you open with a mighty swipe of his paw",
+                "",
+                "It will be daybreak before you are found by the villagers, and after numerous surgeries and expensive physiotherapy you regain the ability to walk",
+                "But by then, when no one was looking, Zarban took forty cakes.",
+                "That's as many as four tens.",
+                "And that's terrible.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "church_bear_armed": {
+            "text": [
+                "You turn to face your foe and come face to crotch with a 12ft tall monster of a bear.",
+                "You instinctively reach for your blade, and draw the corroded shortsword you were given.",
+                "The mighty beast looms over you, menace in his eyes. The beast drips with magic and malice;",
+                "You know in your heart that can only be Zarban the undead shapeshifter himself."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Run away very very quickly",
+                    "conditions": [],
+                    "results": [ "church_bear_armed_coward" ]
+                },
+                {
+                    "prompt": "Go for the beast's head",
+                    "conditions": [],
+                    "results": [ "church_bear_armed_stupid" ]
+                },
+                {
+                    "prompt": "Slash at the beasts legs",
+                    "conditions": [],
+                    "results": [ "church_bear_armed_legs" ]
+                }
+            ]
+        },
+
+        "church_bear_armed_coward": {
+            "text": [
+                "You start to run away, but the mighty beast rips your back open with a mighty swipe of his paw",
+                "",
+                "It will be daybreak before you are found by the villagers, and after numerous surgeries and expensive physiotherapy you regain the ability to walk",
+                "But by then, Zarban is long gone. He would later go on to start a mediocre reaction channel on TikTok.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "church_bear_armed_stupid": {
+            "text": [
+                "You stab directly upwards into the beasts head, aiming to finish this now and here.",
+                "The common steel of the blade cannot deal a finishing blow against such a powerful magical foe, however and the metal passes right through the beast.",
+                "While you leave your flank fully exposed, Zarban disembowels you with ease.",
+                "Zarban would later go on to become a successful corporate attorney.",
+                "",
+                "GAME OVER! Try again?"
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "New game",
+                    "conditions": [],
+                    "results": [ "intro_cave1" ]
+                }
+            ]
+        },
+
+        "church_bear_armed_legs": {
+            "text": [
+                "You slash at the beast's legs, causing him to roar in pain. You can't kill him with this sword, but even if he takes on another form,",
+                "It will take days for him to heal from such a blow."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Escape while the beast reels from the blow",
+                    "conditions": [],
+                    "results": [ "church_bear_armed_escape" ]
+                },
+                {
+                    "prompt": "Go for the beast's head",
+                    "conditions": [],
+                    "results": [ "church_bear_armed_stupid" ]
+                }
+            ]
+        },
+
+        "church_bear_armed_escape": {
+            "text": [
+                "With the beast's legs injured, you take your chance to escape into the woods, towards the temple, and Gaylen the town priest.",
+                "You arrive at the temple late in the afternoon, and see the priest standing outside the ornate stone building.",
+                "Nearby you can see a graveyard, with a massive ornate tomb at its center.",
+                "The priest approches you:",
+                "\"Greetings, stranger. How may I be of service?\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Speak to the priest",
+                    "conditions": [],
+                    "results": [ "church_gaylen" ]
+                },
+                {
+                    "prompt": "There is nothing for me here, let's return to town",
+                    "conditions": [
+                        { "type": "inventory", "target": "rusty_sword", "value": true }
+                    ],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "church_gaylen": {
+            "text": [
+                "\"Yes, strenger, how can I help you?\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask for help against the evil vampire",
+                    "conditions": [],
+                    "results": [
+                        {
+                            "conditions": [
+                                { "type": "choices", "target": "impressed_gaylen", "value": true }
+                            ],
+                            "target": "church_gaylen_success"
+                        },
+                        "church_gaylen_fail"
+                    ]
+                },
+                {
+                    "prompt": "Ask about the temple",
+                    "conditions": [],
+                    "results": [ "church_gaylen_temple" ]
+                },
+                {
+                    "prompt": "Ask the priest about Dave's family grave",
+                    "conditions": [],
+                    "results": [ "church_gaylen_impressed" ]
+                }
+            ]
+        },
+
+        "church_gaylen_success": {
+            "text": [
+                "The priest stays silent for a time, appearing to pray to himself. Finally he speaks;",
+                "\"As you are a friend to the village, and an honourable soul, I grant you the protection of the great Edwin Rothsten.\"",
+                "\"May the ancient vampire hunter's armor protect you. And take this key, you'll find Moonsbane in the hunter's tomb.\""
+            ],
+            "effects": [
+                { "type": "inventory", "target": "ancient_armor", "value": true },
+                { "type": "inventory", "target": "hunter_tomb_key", "value": true },
+                { "type": "inventory", "target": "old_armor", "value": false },
+                { "type": "choices", "target": "learnt_about_hunter", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Ask the priest something else",
+                    "conditions": [],
+                    "results": [ "church_gaylen" ]
+                },
+                {
+                    "prompt": "Go to the graveyard",
+                    "conditions": [],
+                    "results": [ "church_graveyard" ]
+                }
+            ]
+        },
+        
+        "church_gaylen_fail": {
+            "text": [
+                "\"I will say a prayer of blessing for you stranger.\"",
+                "\"Sadly I have only your word, so I cannot help you more than that. Good luck to you.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask the priest something else",
+                    "conditions": [],
+                    "results": [ "church_gaylen" ]
+                },
+                {
+                    "prompt": "Go to the graveyard",
+                    "conditions": [],
+                    "results": [ "church_graveyard" ]
+                }
+            ]
+        },
+        
+        "church_gaylen_temple": {
+            "text": [
+                "\"This temple was founded over 700 years ago during the time of the Arameic Order.\"",
+                "\"It was personally commisioned by the famed vampire hunter, and knight of the order Edwin Rothsten.\"",
+                "\"The legend himself is entombed here, where himself and his enchanted blade Moonsbane can watch over us.\"",
+                "",
+                "The priest points to the ornate tomb in the center of the graveyard - you think to yourself that it might be prudent to 'borrow' Moonsbane."
+            ],
+            "effects": [
+                { "type": "choices", "target": "learnt_about_hunter", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Ask the priest something else",
+                    "conditions": [],
+                    "results": [ "church_gaylen" ]
+                },
+                {
+                    "prompt": "Go to the graveyard",
+                    "conditions": [],
+                    "results": [ "church_graveyard" ]
+                }
+            ]
+        },
+
+        "church_gaylen_impressed": {
+            "text": [
+                "You show the flowers to the priest, who smiles warmly at you.",
+                "\"Ah! A friend of lord Audemars is a friend of mine. I will bless these and place them at his family grave for you.\""
+            ],
+            "effects": [
+                { "type": "inventory", "target": "dave_flowers", "value": false },
+                { "type": "choices", "target": "impressed_gaylen", "value": true }
+            ],
+            "options": [
+                {
+                    "prompt": "Ask the priest something else",
+                    "conditions": [],
+                    "results": [ "church_gaylen" ]
+                },
+                {
+                    "prompt": "Go to the graveyard",
+                    "conditions": [],
+                    "results": [ "church_graveyard" ]
+                }
+            ]
+        },
+        
+        "church_graveyard": {
+            "text": [
+                "You arrive at the humble graveyard. In its center lies an ornate tomb marked 'Edwin Rothsten, Hunter of the Arameic Order'",
+                "The family grave of the Audemars clan sits nearby."
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Place the flower's on Dave Audemars' family grave",
+                    "conditions": [
+                        { "type": "inventory", "target": "dave_flowers", "value": true }
+                    ],
+                    "results": [ "church_graveyard_flowers" ]
+                },
+                {
+                    "prompt": "Retrieve the sword from the hunter's tomb",
+                    "conditions": [
+                        { "type": "choices", "target": "learnt_about_hunter", "value": true }
+                    ],
+                    "results": [
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "hunter_tomb_key", "value": true }
+                            ],
+                            "target": "church_graveyard_key"
+                        },
+                        "church_graveyard_breakin"
+                    ]
+                },
+                {
+                    "prompt": "Return to the village, and confront Zarban",
+                    "conditions": [
+                        { "type": "inventory", "target": "rusty_sword", "value": true }
+                    ],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "church_graveyard_flowers": {
+            "text": [
+                "You place the flowers at the foot of the family grave stone, and say a short prayer.",
+                "You feel content, your promise fulfilled."
+            ],
+            "effects": [
+                { "type": "inventory", "target": "dave_flowers", "value": false }
+            ],
+            "options": [
+                {
+                    "prompt": "Retrieve the sword from the hunter's tomb",
+                    "conditions": [
+                        { "type": "choices", "target": "learnt_about_hunter", "value": true }
+                    ],
+                    "results": [
+                        {
+                            "conditions": [
+                                { "type": "inventory", "target": "hunter_tomb_key", "value": true }
+                            ],
+                            "target": "church_graveyard_key"
+                        },
+                        "church_graveyard_breakin"
+                    ]
+                },
+                {
+                    "prompt": "Return to the village, and confront Zarban",
+                    "conditions": [
+                        { "type": "inventory", "target": "rusty_sword", "value": true }
+                    ],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "church_graveyard_key": {
+            "text": [
+                "You walk up to the tomb, and use a the key to open the ornate lock.",
+                "You pick up the ancient runic sword and feel its holy power flow through you - Zarban's end is at hand!"
+            ],
+            "effects": [
+                { "type": "inventory", "target": "hunter_sword", "value": true },
+                { "type": "inventory", "target": "rusty_sword", "value": false },
+                { "type": "inventory", "target": "hunter_tomb_key", "value": false }
+            ],
+            "options": [
+                {
+                    "prompt": "Return to the village, and confront Zarban",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        },
+
+        "church_graveyard_breakin": {
+            "text": [
+                "You walk up to the tomb, and use a nearby rock to smash open the ornate lock.",
+                "You pick up the ancient runic sword and equip it - Zarban's end is at hand!",
+                "You'll probably return it when you are finished. Maybe."
+            ],
+            "effects": [
+                { "type": "inventory", "target": "hunter_sword", "value": true },
+                { "type": "inventory", "target": "rusty_sword", "value": false }
+            ],
+            "options": [
+                {
+                    "prompt": "Return to the village, and confront Zarban",
+                    "conditions": [],
+                    "results": [ "jaccuse_arrival" ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/player.inventory.zarban.schema.json",
+    "title": "ZARBAN_INVENTORY",
+    "description": "An inventory for Zarban's Grotto",
+    "additionalProperties": false,
+    "required": ["records"],
+    "type": "object",
+    
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "records": {
+            "type": "object",
+            "description": "The set of items available to the player",
+            "additionalProperties": {
+                "type": "object",
+                "description": "A single item",
+                "additionalProperties": false,
+                "required": ["equipped", "description", "effects"],
+                "properties": {
+                    "equipped": {
+                        "type": "boolean",
+                        "description": "If true, the player has the item"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Display name for the item"
+                    },
+                    "effects": {
+                        "type": "array",
+                        "description": "Set of effects the item has on the player",
+                        "items": {
+                            "$ref": "./player.effect.zarban.schema.json"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

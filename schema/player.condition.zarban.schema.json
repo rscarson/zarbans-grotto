@@ -1,0 +1,41 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/player.condition.zarban.schema.json",
+    "title": "ZARBAN_CONDITION",
+    "description": "A resolvable effect to check against the player",
+    "additionalProperties": false,
+    "required": ["type", "target", "value"],
+    "type": "object",
+
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": ["status", "choices", "inventory"],
+            "description": "The type of effect"
+        },
+        "target": {
+            "type": "string",
+            "description": "The target to affect"
+        },
+        "value": {
+            "type": ["string", "number", "boolean"],
+            "description": "The value of the effect"
+        },
+        "operation": {
+            "type": "string",
+            "enum": ["gt", "gte", "lt", "lte", "eq", "ne"],
+            "description": "The type of comparison to make"
+        }
+    },
+    
+    "if": {
+        "properties": {
+            "type": {
+                "const": "status"
+            }
+        }
+    },
+    "then": {
+        "required": ["operation"]
+    }
+}

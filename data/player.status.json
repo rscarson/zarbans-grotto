@@ -1,0 +1,16 @@
+{
+    "$schema": "../schema/player.status.zarban.schema.json",
+    "records" : {
+        "stamina": {
+            "hidden": false,
+            "default": 0,
+            "maximum": 10
+        },
+
+        "alcoholism": {
+            "hidden": true,
+            "default": 0,
+            "maximum": 4
+        }
+    }
+}
