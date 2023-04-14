@@ -119,14 +119,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -152,14 +152,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -184,14 +184,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -216,14 +216,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -250,14 +250,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -280,14 +280,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -312,14 +312,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -350,14 +350,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -378,14 +378,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -407,14 +407,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -437,14 +437,14 @@
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "eq" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
                     ],
                     "results": [ "tavern_ending_alcoholic" ]
                 },
                 {
                     "prompt": "Go back to your stool",
                     "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 4, "operation": "lt" }
+                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
                     ],
                     "results": [ "tavern" ]
                 }
@@ -623,6 +623,21 @@
                     "prompt": "Stop speaking to the woman",
                     "conditions": [],
                     "results": [ "village_farm" ]
+                }
+            ]
+        },
+
+        "village_farm_amelie_unusual": {
+            "text": [
+                "\"Unusual?\" The young woman laughs",
+                "\"Honey, having a stranger on our farm is the most unusual thing that's happened in recent memory.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask her something else",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie" ]
                 }
             ]
         },
@@ -952,7 +967,9 @@
                 },
                 {
                     "prompt": "Ask about the strange items in her home",
-                    "conditions": [],
+                    "conditions": [
+                        { "type": "choices", "target": "snooped_on_teacher", "value": true }
+                    ],
                     "results": [ "village_school_items" ]
                 },
                 {

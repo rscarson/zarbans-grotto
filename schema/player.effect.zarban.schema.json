@@ -10,7 +10,7 @@
     "properties": {
         "type": {
             "type": "string",
-            "enum": ["status", "choices", "inventory"],
+            "enum": ["status", "choices", "inventory", "reset"],
             "description": "The type of effect"
         },
         "target": {

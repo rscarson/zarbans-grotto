@@ -36,7 +36,7 @@ export class PlayerEffect {
      */
     apply(player, skip_inv_queue=false) {
         if (this.target == "all") {
-            return player[this.type].list().map(e => this.applyToTarget(e, player[this.type])).filter(e => e == false).length == 0;
+            player[this.type].list().map(e => this.applyToTarget(e, player[this.type])).filter(e => e == false).length == 0;
         } else {
             this.applyToTarget(this.target, player[this.type]);
         }

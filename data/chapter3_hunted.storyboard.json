@@ -274,7 +274,7 @@
         
         "church_gaylen_temple": {
             "text": [
-                "\"This temple was founded over 700 years ago during the time of the Arameic Order.\"",
+                "\"This temple was founded over 700 years ago during the time of the Aremeic Order.\"",
                 "\"It was personally commisioned by the famed vampire hunter, and knight of the order Edwin Rothsten.\"",
                 "\"The legend himself is entombed here, where himself and his enchanted blade Moonsbane can watch over us.\"",
                 "",
@@ -322,7 +322,7 @@
         
         "church_graveyard": {
             "text": [
-                "You arrive at the humble graveyard. In its center lies an ornate tomb marked 'Edwin Rothsten, Hunter of the Arameic Order'",
+                "You arrive at the humble graveyard. In its center lies an ornate tomb marked 'Edwin Rothsten, Hunter of the Aremeic Order'",
                 "The family grave of the Audemars clan sits nearby."
             ],
             "effects": [],

@@ -14,11 +14,9 @@ const DEBUG_ZARBAN = process.env.DEBUG_ZARBAN;
 function nextGameLine(player, option) {
     console.clear();
     console.log('');
-    console.log(Interface.getInterfaceString(player, 
-        option && !player.nextStory(option),
-        DEBUG_ZARBAN
-    ));
-    console.log('\n> ');
+    const error = option? !player.nextStory(option) : false;
+    console.log(Interface.getInterfaceString(player, error, DEBUG_ZARBAN));
+    console.log('\n');
 }
 
 // Prep game objects

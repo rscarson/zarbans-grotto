@@ -13,7 +13,7 @@
                 { "type": "inventory", "target": "all", "value": false },
                 { "type": "status", "target": "all", "operation": "add", "value": -99 },
 
-                { "type": "status", "target": "stamina", "operation": "add", "value": 3 },
+                { "type": "status", "target": "stamina", "operation": "add", "value": 2 },
                 { "type": "inventory", "target": "hunter_sword", "value": true },
                 { "type": "inventory", "target": "hunter_armor", "value": true }
             ],

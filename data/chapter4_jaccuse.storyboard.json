@@ -162,7 +162,7 @@
                 {
                     "prompt": "Confront the old farmer",
                     "conditions": [],
-                    "results": [ "jaccuse_arnoulf" ]
+                    "results": [ "jaccuse_farm_arnoulf" ]
                 },
                 {
                     "prompt": "Confront the farmer's daughter",
@@ -205,7 +205,7 @@
                 {
                     "prompt": "Confront the old farmer",
                     "conditions": [],
-                    "results": [ "jaccuse_arnoulf" ]
+                    "results": [ "jaccuse_farm_arnoulf" ]
                 },
                 {
                     "prompt": "Confront the farmer's daughter",
@@ -404,7 +404,8 @@
         "jaccuse_mill": {
             "text": [
                 "You burst into the stone building and charge to the far side of the room, where the family sits around a fireplace.",
-                "They look up in confused horror at the unexpected home invasion."
+                "They look up in confused horror at the unexpected home invasion.",
+                "A bandage is wrapped around the baker's hand, clearly a fresh wound."
             ],
             "effects": [],
             "options": [

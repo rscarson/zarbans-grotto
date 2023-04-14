@@ -27,13 +27,13 @@
         },
 
         "magic_sword": {
-            "description": "Enchanted shortsword",
+            "description": "Moonsbane",
             "equipped": false,
             "effects": [
             ]
         },
         "ancient_armor": {
-            "description": "Ancient vampire hunter's armor",
+            "description": "Edwin Rothsten's armor",
             "equipped": false,
             "effects": [
                 { "type": "status", "target": "stamina", "operation": "add_max", "value": 5 },

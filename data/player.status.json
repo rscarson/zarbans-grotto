@@ -4,13 +4,13 @@
         "stamina": {
             "hidden": false,
             "default": 0,
-            "maximum": 10
+            "maximum": 3
         },
 
         "alcoholism": {
             "hidden": true,
             "default": 0,
-            "maximum": 4
+            "maximum": 2
         }
     }
 }
