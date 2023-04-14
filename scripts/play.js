@@ -3,6 +3,8 @@ import { Interface } from '../src/game_engine/interface.js';
 
 import { createInterface } from 'readline';
 
+const DEBUG_ZARBAN = process.env.DEBUG_ZARBAN;
+
 /**
  * Ask the user for the next choice
  * @param {Object} reader 
@@ -13,9 +15,10 @@ function nextGameLine(player, option) {
     console.clear();
     console.log('');
     console.log(Interface.getInterfaceString(player, 
-        option && !player.nextStory(option)
+        option && !player.nextStory(option),
+        DEBUG_ZARBAN
     ));
-    console.log('');
+    console.log('\n> ');
 }
 
 // Prep game objects

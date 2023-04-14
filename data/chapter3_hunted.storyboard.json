@@ -34,14 +34,18 @@
 
         "church_bear_coward": {
             "text": [
-                ""
+                "You bravely run away, as fast as you can into the woods, towards the temple, and Gaylen the town priest.",
+                "You arrive at the temple late in the afternoon, and see the priest standing outside the ornate stone building.",
+                "Nearby you can see a graveyard, with a massive ornate tomb at its center.",
+                "The priest approches you:",
+                "\"Greetings, stranger. How may I be of service?\""
             ],
             "effects": [],
             "options": [
                 {
-                    "prompt": "",
+                    "prompt": "Speak to the priest",
                     "conditions": [],
-                    "results": [ "" ]
+                    "results": [ "church_gaylen" ]
                 }
             ]
         },
@@ -139,7 +143,9 @@
                 "You slash at the beast's legs, causing him to roar in pain. You can't kill him with this sword, but even if he takes on another form,",
                 "It will take days for him to heal from such a blow."
             ],
-            "effects": [],
+            "effects": [
+                { "type": "choices", "target": "injured_zarban", "value": true }
+            ],
             "options": [
                 {
                     "prompt": "Escape while the beast reels from the blow",
@@ -187,7 +193,9 @@
             "options": [
                 {
                     "prompt": "Ask for help against the evil vampire",
-                    "conditions": [],
+                    "conditions": [
+                        { "type": "inventory", "target": "ancient_armor", "value": false }
+                    ],
                     "results": [
                         {
                             "conditions": [
@@ -205,8 +213,15 @@
                 },
                 {
                     "prompt": "Ask the priest about Dave's family grave",
-                    "conditions": [],
+                    "conditions": [
+                        { "type": "inventory", "target": "dave_flowers", "value": true }
+                    ],
                     "results": [ "church_gaylen_impressed" ]
+                },
+                {
+                    "prompt": "Go to the graveyard",
+                    "conditions": [],
+                    "results": [ "church_graveyard" ]
                 }
             ]
         },

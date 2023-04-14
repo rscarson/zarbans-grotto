@@ -43,14 +43,14 @@ export class Interface {
         return output;
     }
 
-    static getInterfaceString(player, has_error=false) {
+    static getInterfaceString(player, has_error=false, debug=false) {
         let playerStats = player.getAdjustedStats();
         let title = playerStats.currentChapter.name;
         let inner_text = [
             '',
             ...playerStats.currentStory.text,
             '',
-            ...this.getPlayerDetailString(playerStats, process.env.DEBUG_ZARBAN)
+            ...this.getPlayerDetailString(playerStats, debug)
         ];
 
         let options = playerStats.currentStory.options.filter(o => playerStats.validateConditions(o.conditions));        

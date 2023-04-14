@@ -31,6 +31,10 @@
 
         "learnt_about_hunter": {
             "description": "Learnt about the famous hunter (and his sword)"
+        },
+
+        "injured_zarban": {
+            "description": "Injured Zarban's legs"
         }
     }
 }

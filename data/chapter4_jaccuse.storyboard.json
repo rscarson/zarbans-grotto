@@ -34,6 +34,12 @@
                             ],
                             "target": "jaccuse_end_stamina"
                         },
+                        {
+                            "conditions": [
+                                { "type": "choices", "target": "injured_zarban", "value": true }
+                            ],
+                            "target": "jaccuse_farm_scar"
+                        },
                         "jaccuse_farm" 
                     ]
                 },
@@ -170,15 +176,15 @@
                         },
                         {
                             "conditions": [
-                                { "type": "inventory", "target": "hunter_sword", "value": true }
+                                { "type": "inventory", "target": "ancient_armor", "value": true }
                             ],
-                            "target": "jaccuse_farm_amelie_noarmor"
+                            "target": "jaccuse_farm_amelie_good"
                         },
                         {
                             "conditions": [
-                                { "type": "inventory", "target": "hunter_armor", "value": true }
+                                { "type": "inventory", "target": "hunter_sword", "value": true }
                             ],
-                            "target": "jaccuse_farm_amelie_good"
+                            "target": "jaccuse_farm_amelie_noarmor"
                         }
                     ]
                 },
@@ -213,15 +219,15 @@
                         },
                         {
                             "conditions": [
-                                { "type": "inventory", "target": "hunter_sword", "value": true }
+                                { "type": "inventory", "target": "ancient_armor", "value": true }
                             ],
-                            "target": "jaccuse_farm_amelie_noarmor"
+                            "target": "jaccuse_farm_amelie_good"
                         },
                         {
                             "conditions": [
-                                { "type": "inventory", "target": "hunter_armor", "value": true }
+                                { "type": "inventory", "target": "hunter_sword", "value": true }
                             ],
-                            "target": "jaccuse_farm_amelie_good"
+                            "target": "jaccuse_farm_amelie_noarmor"
                         }
                     ]
                 },
@@ -278,7 +284,7 @@
             "text": [
                 "You approach the young woman and draw your sword.",
                 "She dons an evil grin and her features twist and distort, as the evil shapeshifter assumes to form of a massive bear!",
-                "You stab the vile creature through it's dark heart, but in its dying breath, the evil sorcerer utters a final curse.",
+                "You stab the vile creature through it's dark heart, but in his dying breath, the evil sorcerer utters a final curse.",
                 "As you fall to the ground, the air sucked out of your lungs, and slowly choke to death on your own blood,",
                 "You see the evil creature turn to dust before you. You may die, but at least the world is safe from this creature.",
                 "The village will remember you as a brave hero.",
@@ -299,7 +305,7 @@
             "text": [
                 "You approach the young woman and draw your sword.",
                 "She dons an evil grin and her features twist and distort, as the evil shapeshifter assumes to form of a massive bear!",
-                "You stab the vile creature through it's dark heart, but in its dying breath, the evil sorcerer utters a final curse.",
+                "You stab the vile creature through it's dark heart, but in his dying breath, the evil sorcerer utters a final curse.",
                 "Your enchanted armor glows bright with ancient runic magic as the vampire's curse is nullified.",
                 "The creature contorts and screeches as it is reduced to dust and ash - the vile one has been vanquished!",
                 "",
