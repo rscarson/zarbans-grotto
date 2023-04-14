@@ -182,7 +182,7 @@
                         },
                         {
                             "conditions": [
-                                { "type": "inventory", "target": "hunter_sword", "value": true }
+                                { "type": "inventory", "target": "magic_sword", "value": true }
                             ],
                             "target": "jaccuse_farm_amelie_noarmor"
                         }
@@ -225,7 +225,7 @@
                         },
                         {
                             "conditions": [
-                                { "type": "inventory", "target": "hunter_sword", "value": true }
+                                { "type": "inventory", "target": "magic_sword", "value": true }
                             ],
                             "target": "jaccuse_farm_amelie_noarmor"
                         }

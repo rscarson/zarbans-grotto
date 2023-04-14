@@ -399,7 +399,7 @@
                 "You pick up the ancient runic sword and feel its holy power flow through you - Zarban's end is at hand!"
             ],
             "effects": [
-                { "type": "inventory", "target": "hunter_sword", "value": true },
+                { "type": "inventory", "target": "magic_sword", "value": true },
                 { "type": "inventory", "target": "rusty_sword", "value": false },
                 { "type": "inventory", "target": "hunter_tomb_key", "value": false }
             ],
@@ -419,7 +419,7 @@
                 "You'll probably return it when you are finished. Maybe."
             ],
             "effects": [
-                { "type": "inventory", "target": "hunter_sword", "value": true },
+                { "type": "inventory", "target": "magic_sword", "value": true },
                 { "type": "inventory", "target": "rusty_sword", "value": false }
             ],
             "options": [
