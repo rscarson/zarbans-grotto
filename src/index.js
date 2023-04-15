@@ -1,8 +1,7 @@
 import { extensionName, author, version } from '../package.json';
 import './functions';
 import './decorators';
-import { Player } from './game_engine/player';
-import { Interface } from './game_engine/interface';
+import './runner';
 
 globalThis.extension = () => {
     const p = new Player();
@@ -20,7 +19,3 @@ globalThis.extension = () => {
         }
     }
 }
-
-globalThis.Zarban = {
-    Player: Player, Interface: Interface
-};

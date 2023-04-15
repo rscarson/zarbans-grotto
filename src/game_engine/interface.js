@@ -65,6 +65,22 @@ export class Interface {
             ...prompt
         ].join('\n');
     }
+
+    static getInterfaceStrings(player) {
+        const stats = player.getAdjustedStats();
+        return {
+            title: stats.currentChapter.name,
+            description: [
+                ...stats.currentStory.text,
+                '',
+                ...stats.status.list_visible().map(s => `${s}: ${stats.status.get(s).value}/${stats.status.get(s).maximum}`),
+                '',
+                'Equipment:',
+                ...stats.inventory.all_equipped().map(i => `- ${i.description}`)
+            ],
+            options: stats.currentStory.options.filter(o => stats.validateConditions(o.conditions))
+        };
+    }
 }
 
 /*

@@ -4,12 +4,15 @@
     <meta charset="utf-8">
     <title>Zarban's Grotto</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="web_play.js"></script>
   </head>
   <body>
     <!-- page content -->
-    <div id="zarban_gameboard"></div>
-    <div id="zarban_buttons"></div>
-    <div id="zarban_cursor"></div>
+    <div id="zarban_container"></div>
+
+    <script type="module" src="../dist/zarbans_grotto.js"></script>
+    <script type="module" type="text/javascript">
+      const container = document.getElementById('zarban_container');
+      Zarban.WebPlayer.init(container);
+    </script>
   </body>
 </html>

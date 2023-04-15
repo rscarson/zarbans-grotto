@@ -116,9 +116,11 @@ export class Player {
      * @returns String
      */
     save() {
-        return Buffer.from(
-            JSON.stringify(this)
-        ).toString('base64');
+        return encodeURIComponent(
+            typeof Buffer !== 'undefined'
+            ? Buffer.from( JSON.stringify(this) ).toString('base64')
+            : btoa(JSON.stringify(this))
+        );
     }
 
     /**
@@ -128,7 +130,9 @@ export class Player {
      */
     static restore(data) {
         let unpacked = JSON.parse(
-            Buffer.from(data, 'base64').toString('ascii')
+            typeof Buffer !== 'undefined'
+            ? Buffer.from(decodeURIComponent(data), 'base64').toString('ascii')
+            : atob(decodeURIComponent(data))
         );
         return new Player(unpacked);
     }
