@@ -470,7 +470,7 @@
 
         "village": {
             "text": [
-                "You exit the tavern and walk to the main road crossing the small village. A nearby sign identifies the town as Rothsten."
+                "You stand on the main road crossing the village. A nearby sign identifies the town as Rothsten."
             ],
             "effects": [
                 { "type": "status", "target": "stamina", "operation": "add", "value": -1}
