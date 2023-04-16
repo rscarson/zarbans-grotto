@@ -605,6 +605,11 @@
             "effects": [],
             "options": [
                 {
+                    "prompt": "Ask her for a potion of vampire detection",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie_potion" ]
+                },
+                {
                     "prompt": "Ask her about her family",
                     "conditions": [],
                     "results": [ "village_farm_amelie_family" ]
@@ -623,6 +628,21 @@
                     "prompt": "Stop speaking to the woman",
                     "conditions": [],
                     "results": [ "village_farm" ]
+                }
+            ]
+        },
+
+        "village_farm_amelie_potion": {
+            "text": [
+                "The woman looks at you confused \"Is that a real potion? I'm afraid I wouldn't know how to make this\" The young woman replies",
+                "\"I have a potion to cure rhumatism, if that interests you, or the best salve for warts this side of the continent!\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask her something else",
+                    "conditions": [],
+                    "results": [ "village_farm_amelie" ]
                 }
             ]
         },
