@@ -1,6 +1,8 @@
 ## Zarban's Grotto
 ### An extension for [Lavendeux](https://rscarson.github.io/lavendeux/)
 
+[Play the game in your browser here](https://rscarson.github.io/zarban/#)
+
 [Download Extension](https://github.com/rscarson/zarbans-grotto/releases/latest/download/zarbans_grotto.js)
 
 Extension can be compiled using ```npm run build```, and then imported into Lavendeux for use with the parser.
