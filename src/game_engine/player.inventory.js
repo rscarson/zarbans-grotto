@@ -26,6 +26,14 @@ export class PlayerInventory {
     }
 
     /**
+     * List the available entries
+     * @returns Array
+     */
+    list_equipped() {
+        return Object.keys(this.records).filter(i => this.has(i));
+    }
+
+    /**
      * List the equipped entries
      * @returns Array
      */

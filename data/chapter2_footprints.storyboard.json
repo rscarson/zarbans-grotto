@@ -17,7 +17,15 @@
                 {
                     "prompt": "Leave the tavern",
                     "conditions": [],
-                    "results": [ "village" ]
+                    "results": [ 
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        "village" 
+                    ]
                 }
             ]
         },
@@ -89,7 +97,15 @@
                 {
                     "prompt": "Leave the tavern",
                     "conditions": [],
-                    "results": [ "village" ]
+                    "results": [ 
+                        { 
+                            "conditions": [
+                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
+                            ],
+                            "target": "village_ending_stamina"
+                        },
+                        "village" 
+                    ]
                 }
             ]
         },
@@ -114,20 +130,19 @@
                 {
                     "prompt": "I could use a refreshing drink",
                     "conditions": [],
-                    "results": [ "tavern_bartender_shots" ]
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "status", "target": "alcoholism", "value": 1, "operation": "eq" }
+                            ],
+                            "target": "tavern_ending_alcoholic"
+                        },
+                        "tavern_bartender_shots"
+                    ]
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
-                },
-                {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -151,16 +166,7 @@
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
-                },
-                {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -183,16 +189,7 @@
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
-                },
-                {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -215,16 +212,7 @@
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
-                },
-                {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -248,17 +236,13 @@
                     "results": [ "tavern_lurker_smithy" ]
                 },
                 {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
+                    "prompt": "Ask if he's seen anything unusual",
+                    "conditions": [],
+                    "results": [ "tavern_lurker_unusual" ]
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -279,16 +263,26 @@
             "options": [
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
+                    "conditions": [],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_lurker_unusual": {
+            "text": [
+                "\"Wouldn't know nothin' about that, stranger. Leave me be.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask him more questions",
+                    "conditions": [],
+                    "results": [ "tavern_lurker" ]
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -311,16 +305,7 @@
             "options": [
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
-                },
-                {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -348,17 +333,13 @@
                     "results": [ "tavern_farmer_blacksmith" ]
                 },
                 {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
+                    "prompt": "Ask if he's seen anything unusual",
+                    "conditions": [],
+                    "results": [ "tavern_farmer_unusual" ]
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -377,10 +358,22 @@
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
+                    "conditions": [],
+                    "results": [ "tavern" ]
+                }
+            ]
+        },
+        
+        "tavern_farmer_unusual": {
+            "text": [
+                "\"Unusual? Two strangers in one night is unusual. It's also annoying. Can I get back to me drink now?\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Continue talking to the farmer",
+                    "conditions": [],
+                    "results": [ "tavern_farmer" ]
                 },
                 {
                     "prompt": "Go back to your stool",
@@ -406,16 +399,7 @@
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
-                },
-                {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -436,16 +420,7 @@
                 },
                 {
                     "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "eq" }
-                    ],
-                    "results": [ "tavern_ending_alcoholic" ]
-                },
-                {
-                    "prompt": "Go back to your stool",
-                    "conditions": [
-                        { "type": "status", "target": "alcoholism", "value": 2, "operation": "lt" }
-                    ],
+                    "conditions": [],
                     "results": [ "tavern" ]
                 }
             ]
@@ -543,15 +518,7 @@
                 {
                     "prompt": "Search the tavern",
                     "conditions": [],
-                    "results": [ 
-                        { 
-                            "conditions": [
-                                { "type": "status", "target": "stamina", "operation": "eq", "value": 0 }
-                            ],
-                            "target": "village_ending_stamina"
-                        },
-                        "tavern_enter" 
-                    ]
+                    "results": [ "tavern_enter" ]
                 },
                 {
                     "prompt": "Leave the village and head to the priest's cottage",
@@ -634,7 +601,7 @@
 
         "village_farm_amelie_potion": {
             "text": [
-                "The woman looks at you confused \"Is that a real potion? I'm afraid I wouldn't know how to make this\" The young woman replies",
+                "The woman looks at you confused; \"Is that a real potion? I'm afraid I wouldn't know how to make this.\" The young woman replies",
                 "\"I have a potion to cure rhumatism, if that interests you, or the best salve for warts this side of the continent!\""
             ],
             "effects": [],
@@ -879,6 +846,11 @@
                     "results": [ "village_mill_family" ]
                 },
                 {
+                    "prompt": "Ask if they've seen anything unusual",
+                    "conditions": [],
+                    "results": [ "village_mill_unusual" ]
+                },
+                {
                     "prompt": "Leave the mill",
                     "conditions": [],
                     "results": [ "village" ]
@@ -890,6 +862,21 @@
             "text": [
                 "\"We're the Fouchers sir - Nils and Silvia. Our family's been in these parts since the colonial days of the Order.\"",
                 "\"We've 3 little 'uns - Dylan is 8, and the twins are fresh out the oven.\""
+            ],
+            "effects": [],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_mill" ]
+                }
+            ]
+        },
+
+        "village_mill_unusual": {
+            "text": [
+                "\"Not a thing of interest has happened in these here parts in many a year, sir.\"",
+                "\"If it's adventure ye' seek, you've picked the wrong village I'm afraid.\""
             ],
             "effects": [],
             "options": [
@@ -986,6 +973,19 @@
                     ]
                 },
                 {
+                    "prompt": "Ask if she's seen anything unusual",
+                    "conditions": [],
+                    "results": [ 
+                        {
+                            "conditions": [
+                                { "type": "choices", "target": "insulted_teacher", "value": true }
+                            ],
+                            "target": "village_school_items"
+                        },
+                        "village_school_unusual" 
+                    ]
+                },
+                {
                     "prompt": "Ask about the strange items in her home",
                     "conditions": [
                         { "type": "choices", "target": "snooped_on_teacher", "value": true }
@@ -1021,6 +1021,20 @@
             "effects": [
                 { "type": "choices", "target": "insulted_teacher", "value": true }
             ],
+            "options": [
+                {
+                    "prompt": "Ask something else",
+                    "conditions": [],
+                    "results": [ "village_school_inside" ]
+                }
+            ]
+        },
+
+        "village_school_unusual": {
+            "text": [
+                "\"Besides the usual nonsense from that horrible Brolette girl? Not in a long time.\""
+            ],
+            "effects": [],
             "options": [
                 {
                     "prompt": "Ask something else",

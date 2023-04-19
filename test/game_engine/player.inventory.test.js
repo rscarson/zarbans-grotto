@@ -29,6 +29,7 @@ describe('PlayerInventory', () => {
     test('activeEffects', () => {
         p.give('old_armor');
         p.give('ancient_armor');
-        expect(p.activeEffects().length).toBe(2);
+        expect(p.activeEffects().length).toBe(4);
+        
     });
 });

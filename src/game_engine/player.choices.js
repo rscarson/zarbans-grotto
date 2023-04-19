@@ -22,6 +22,14 @@ export class PlayerChoices {
     }
 
     /**
+     * List the available entries
+     * @returns Array
+     */
+    list_chosen() {
+        return Object.keys(this.records).filter(k => this.chose(k));
+    }
+
+    /**
      * Make a choice
      * @param {String} choice 
      */

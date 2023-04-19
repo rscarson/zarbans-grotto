@@ -88,6 +88,8 @@ class PlayerStatusEffect extends PlayerEffect {
                 return data.get(target).value == this.value;
             case "ne":
                 return data.get(target).value != this.value;
+            default:
+                throw new Error("Invalid operation for statusEffect")
         }
     }
 

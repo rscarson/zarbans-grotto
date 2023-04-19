@@ -20,7 +20,7 @@ globalThis.advanceGame = (option) => {
 
     document.getElementById('zarban_gameboard').innerHTML = text.map(l => `<p>${l}</p>`).join('\n');
 
-    let options = playerStats.currentStory.options.filter(o => playerStats.validateConditions(o.conditions));     
+    let options = playerStats.currentStory().options.filter(o => playerStats.validateConditions(o.conditions));     
     const buttons = options.map((o,i) => `<a href="#" onClick="advanceGame(${i+1})">> ${o}</a>`);
     document.getElementById('zarban_buttons').innerHTML = buttons.join('\n');
 }

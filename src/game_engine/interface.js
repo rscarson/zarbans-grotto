@@ -45,15 +45,15 @@ export class Interface {
 
     static getInterfaceString(player, has_error=false, debug=false) {
         let playerStats = player.getAdjustedStats();
-        let title = playerStats.currentChapter.name;
+        let title = playerStats.currentChapter().name;
         let inner_text = [
             '',
-            ...playerStats.currentStory.text,
+            ...playerStats.currentStory().text,
             '',
             ...this.getPlayerDetailString(playerStats, debug)
         ];
 
-        let options = playerStats.currentStory.options.filter(o => playerStats.validateConditions(o.conditions));        
+        let options = playerStats.currentStory().options.filter(o => playerStats.validateConditions(o.conditions));        
         let prompt = [
             `${has_error ? 'Invalid selection. ' : ''}What do you do?`,
             ...options.map((o,i) => `${i+1}) ${o}`)
@@ -69,43 +69,16 @@ export class Interface {
     static getInterfaceStrings(player) {
         const stats = player.getAdjustedStats();
         return {
-            title: stats.currentChapter.name,
+            title: stats.currentChapter().name,
             description: [
-                ...stats.currentStory.text,
+                ...stats.currentStory().text,
                 '',
                 ...stats.status.list_visible().map(s => `${s}: ${stats.status.get(s).value}/${stats.status.get(s).maximum}`),
                 '',
                 'Equipment:',
                 ...stats.inventory.all_equipped().map(i => `- ${i.description}`)
             ],
-            options: stats.currentStory.options.filter(o => stats.validateConditions(o.conditions))
+            options: stats.currentStory().options.filter(o => stats.validateConditions(o.conditions))
         };
     }
 }
-
-/*
-TODO
-! Apply effects to status markers in player class
-- Add operations to effects (set, add, set_max, add_max)
-- Use effected markers in condition checks and UI drawing
-
-╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║ Chapter 1: The Grotto                                                                                                                                      ║
-╟────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╢
-║ Drenched from the rain, and exhausted from having hunted all through the night, you have finally cornered the beast which you have been hired to dispatch. ║
-║ You approach the forboding cavern to which you have stalked your prey, the shapeshifting vampire Zarban.                                                   ║
-║ The foul stench of magic fills your nostrils as you prepare to enter the grotto proper.                                                                    ║
-║                                                                                                                                                            ║
-║ Stamina 6/10                                                                                                                                               ║
-║                                                                                                                                                            ║
-║ Equipment:                                                                                                                                                 ║
-║ - Vampire Hunter's Armor (+8 Max Stamina)                                                                                                                  ║
-║ - Enchanted Sword                                                                                                                                          ║
-╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
-
-What do you do?
-1) Draw your magic sword and approach the shadow
-2) I don't care about vampires, let's go to the tavern
-
-
-*/

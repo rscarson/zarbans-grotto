@@ -9,9 +9,8 @@ import player_data from '../../dist/game.json' assert { type: "json" };
 
 export class Player {
     constructor(json) {
-        if (json === undefined) {
-            JsonUtilities.assign(this, player_data);
-        } else {
+        JsonUtilities.assign(this, player_data);
+        if (json !== undefined) {
             JsonUtilities.assign(this, json);
         }
 
@@ -23,12 +22,33 @@ export class Player {
             this.chapters[i] = new Chapter(this.chapters[i]);
         }
 
-        if (this.currentStory === undefined) {
+        if (this.currentStoryKey === undefined) {
             this.setStory(this.entrypoint);
-        } else {
-            this.currentChapter = new Chapter(this.currentChapter);
-            this.currentStory = new Story(this.currentStory);
         }
+    }
+
+    /**
+     * Return the current story
+     * @returns Story
+     */
+    currentStory() {
+        return this.getStory(this.currentStoryKey);
+    }
+
+    /**
+     * Return the current chapter
+     * @returns Chapter
+     */
+    currentChapter() {
+        return this.chapters[this.currentChapterKey];
+    }
+
+    /**
+     * Return true if this is new game
+     * @returns bool
+     */
+    isNewGame() {
+        return this.currentStoryKey == this.entrypoint;
     }
 
     /**
@@ -53,7 +73,7 @@ export class Player {
      * @returns String, or false for invalid selections
      */
     nextStory(option_id) {
-        let next = this.currentStory.options.filter(o => this.validateConditions(o.conditions))[option_id-1];
+        let next = this.currentStory().options.filter(o => this.validateConditions(o.conditions))[option_id-1];
         if (next === undefined) return false;
         
         // Search results
@@ -71,17 +91,20 @@ export class Player {
      * @param {String} story_key 
      */
     setStory(story_key) {
-        for (const chapter of Object.values(this.chapters)) {
-            let story = chapter.getStory(story_key);
+        for (const i in Object.keys(this.chapters)) {
+            let story = this.chapters[i].getStory(story_key);
             if (story !== false) {
-                this.currentChapter = chapter;
-                this.currentStory = story;
+                this.currentChapterKey = i;
+                this.currentStoryKey = story_key;
 
                 for (const effect of story.effects) {
                     effect.apply(this);
                 }
+                return true;
             }
         }
+
+        return false;
     }
 
     /**
@@ -116,10 +139,21 @@ export class Player {
      * @returns String
      */
     save() {
+        const gameData = {
+            currentChapterKey: this.currentChapterKey,
+            currentStoryKey: this.currentStoryKey,
+            status: {},
+            choices: this.choices.list_chosen(),
+            inventory: this.inventory.list_equipped()
+        };
+
+        this.status.list().forEach(i => {gameData.status[i] = {
+            value: this.status.get(i).value,
+            maximum: this.status.get(i).maximum
+        }});
+
         return encodeURIComponent(
-            typeof Buffer !== 'undefined'
-            ? Buffer.from( JSON.stringify(this) ).toString('base64')
-            : btoa(JSON.stringify(this))
+            JSON.stringify(gameData)
         );
     }
 
@@ -129,11 +163,29 @@ export class Player {
      * @returns Player
      */
     static restore(data) {
-        let unpacked = JSON.parse(
-            typeof Buffer !== 'undefined'
-            ? Buffer.from(decodeURIComponent(data), 'base64').toString('ascii')
-            : atob(decodeURIComponent(data))
-        );
-        return new Player(unpacked);
+        try {
+            const gameData = JSON.parse(
+                decodeURIComponent(data)
+            );
+    
+            const player = new Player({
+                currentChapterKey: gameData.currentChapterKey,
+                currentStoryKey: gameData.currentStoryKey,
+            });
+            gameData.choices.forEach(k => {
+                player.choices.records[k].enabled = true;
+            });
+            gameData.inventory.forEach(k => {
+                player.inventory.records[k].equipped = true;
+            });
+            Object.keys(gameData.status).forEach(k => {
+                player.status.records[k].value = gameData.status[k].value;
+                player.status.records[k].maximum = gameData.status[k].maximum;
+            });
+            return player;
+        } catch(e) {
+            console.log(e);
+            return new Player();
+        }
     }
 }
