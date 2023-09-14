@@ -1,5 +1,6 @@
 'use strict'
-import { writeFileSync, readFileSync } from 'fs';
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
+import * as path from 'path';
 
 function importJSON(path) {
     const data = readFileSync(path);
@@ -17,6 +18,11 @@ player_data.status = importJSON(player_data.status);
 for (const i of Object.keys(player_data.chapters)) {
     player_data.chapters[i] = importJSON(player_data.chapters[i]);
     player_data.chapters[i].chapter = i;
+}
+
+const dir = path.dirname(config.output);
+if (!existsSync(dir)){
+    mkdirSync(dir, { recursive: true });
 }
 
 let json = JSON.stringify(player_data);
