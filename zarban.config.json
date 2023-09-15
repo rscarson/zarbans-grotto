@@ -1,4 +1,5 @@
 {
     "root": "data/player.json",
-    "output": "dist/game.json"
+    "output": "dist/game.json",
+    "encode": false
 }

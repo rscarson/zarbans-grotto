@@ -26,4 +26,14 @@ if (!existsSync(dir)){
 }
 
 let json = JSON.stringify(player_data);
+
+// Encode the level data if requested
+if (config.encode) {
+    const encoder = new TextEncoder()
+    json = encoder.encode(json);
+    json = JSON.stringify({
+        comment: "I know this looks sketchy af but it's just a base64 encoding of the games' level data",
+        data: json
+    });
+}
 writeFileSync(config.output, json);

@@ -21,7 +21,7 @@ export class ZarbanLavendeuxRunner extends ZarbanRunner {
             'What do you do?',
             ...strings.options.map((o,i) => `${i+1} @zarban) ${o}`),
             '',
-            'You can choose an option from above, such as "1 @zarban" and "zarban(2)" or start a new game with "start/restart @zarban" or "zarban()"',
+            'You can choose an option from above, such as "1 @zarban" and "zarban(2)" or start a new game with "start/restart @zarban" or "zarban("start")"',
             'Type your selection below and use Lavendeux to continue your adventure!\n'
         ].join('\n');
     }

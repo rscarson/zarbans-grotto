@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "jsonschema": "^1.4.1",
-    "lavendeux": "^1.0.2",
+    "lavendeux": "^1.1.7",
     "lite-server": "^2.6.1"
   },
   "devDependencies": {

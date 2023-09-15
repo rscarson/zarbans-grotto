@@ -5,7 +5,13 @@ import { PlayerStatus } from "./player.status.js";
 import { Chapter, Story } from "./chapter.js";
 import { JsonUtilities } from "./json.utils.js";
 
-import player_data from '../../dist/game.json' assert { type: "json" };
+import _player_data from '../../dist/game.json' assert { type: "json" };
+let player_data = _player_data;
+if (player_data.data) {
+    // Level data is encoded
+    player_data = JsonUtilities.base64Decode(player_data.data);
+    player_data = JSON.parse(player_data);
+}
 
 export class Player {
     constructor(json) {

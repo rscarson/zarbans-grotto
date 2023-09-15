@@ -41,7 +41,7 @@ export class ZarbanRunner {
      */
     step(option) {
         this.error = option
-        ? this.player.nextStory(option)
+        ? !this.player.nextStory(option)
         : false;
         return this.draw();
     }
