@@ -157,4 +157,4 @@ export class ZarbanWebRunner extends ZarbanRunner {
     }
 }
 
-globalThis.zarban = (container_id) => new ZarbanWebRunner(container_id);
+globalThis.play_zarban = (container_id) => new ZarbanWebRunner(container_id);

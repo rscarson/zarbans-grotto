@@ -1,7 +1,6 @@
 import { name, author, version } from '../../package.json';
 import { ZarbanRunner } from './runner';
 import { Interface } from '../game_engine';
-import { Lavendeux } from 'lavendeux';
 
 export class ZarbanLavendeuxRunner extends ZarbanRunner {
     constructor(save_data) {
@@ -30,21 +29,34 @@ export class ZarbanLavendeuxRunner extends ZarbanRunner {
      * Register zarban as a lavendeux extension
      */
     static registerExtension(name, author, version) {
-        let instance = new Lavendeux(name, author, version);
-        instance.addStringDecorator('zarban', ZarbanLavendeuxRunner.callback);
-        instance.addStringDecorator('Zarban', ZarbanLavendeuxRunner.callback);
-        instance.addStringFunction('zarban', ZarbanLavendeuxRunner.callback).addStringArgument();
-        instance.addStringFunction('Zarban', ZarbanLavendeuxRunner.callback).addStringArgument();
-        Lavendeux.register(instance);
+        if (!lavendeux) return; // May not be running in the lavendeux engine
+
+        lavendeuxExtensionName(name);
+        lavendeuxExtensionAuthor(author);
+        lavendeuxExtensionVersion(version);
+        
+        lavendeuxFunction('play_zarban', () => ZarbanLavendeuxRunner.callback('start'), {
+            description: "Start a new game of Zarban",
+            arguments: [],
+            returns: lavendeuxType.String
+        });
+    
+        lavendeuxFunction('zarban', ZarbanLavendeuxRunner.callback, {
+            description: "Advance a game of Zarban",
+            arguments: [lavendeuxType.String],
+            returns: lavendeuxType.String
+        });
+    
+        lavendeuxDecorator('zarban', ZarbanLavendeuxRunner.callback, lavendeuxType.String);
     }
 
     /**
      * Callback method for running zarban through lavendeux
      */
-    static callback(option, state) {
-        // Restart the game?
-        if (['start', 'restart', ''].includes(option.toLowerCase())) {
-            delete state.zarban_save;
+    static callback(option) {
+        let state = loadState();
+        if (["start", "restart", ""].includes(option.toLowerCase())) {
+          delete state.zarban_save;
         }
 
         // Play the game
@@ -53,6 +65,7 @@ export class ZarbanLavendeuxRunner extends ZarbanRunner {
         
         // Return the next interface
         state.zarban_save = game.save();
+        saveState(state);
         return result;
     }
 }

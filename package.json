@@ -15,11 +15,10 @@
   },
   "dependencies": {
     "jsonschema": "^1.4.1",
-    "lavendeux": "^1.1.7",
+    "lavendeux": "^1.2.2",
     "lite-server": "^2.6.1"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.3",
     "vite": "^4.2.1",
     "vitest": "^0.29.7"
   },

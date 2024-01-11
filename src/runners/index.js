@@ -1,3 +1,5 @@
-// Everything but the console runner since it's not compatible with these 2
+// Register ourselves as a lavendeux extension
 import "./lavendeux";
-import './web';
+
+// Export the hooks to run in a browser
+import "./web";
